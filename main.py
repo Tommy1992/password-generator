@@ -7,10 +7,23 @@ symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 print("Welcome to the PyPassword Generator!")
 nr_letters= int(input("How many letters would you like in your password?\n")) 
 nr_symbols = int(input(f"How many symbols would you like?\n"))
-nr_numbers = int(input(f"How many numbers would you like?\n"))
+nr_numbers = int(input("How many numbers would you like?\n"))
 
 #Eazy Level - Order not randomised:
 #e.g. 4 letter, 2 symbol, 2 number = JduE&!91
+# password = ""
+# for i in range (0, nr_letters):
+#   password = password + str(letters[rnd.randint(0,len(letters)-1)])
+
+# for i in range (0, nr_symbols):
+#   password += str(symbols[rnd.randint(0,len(symbols)-1)])
+
+# for i in range (0, nr_numbers):
+#   password += str(numbers[rnd.randint(0,len(numbers)-1)])
+
+# print (password)
+#e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
+
 password = ""
 for i in range (0, nr_letters):
   password = password + str(letters[rnd.randint(0,len(letters)-1)])
@@ -20,6 +33,18 @@ for i in range (0, nr_symbols):
 
 for i in range (0, nr_numbers):
   password += str(numbers[rnd.randint(0,len(numbers)-1)])
-  
+
 print (password)
-#e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
+
+for i in range (0, len(password)-1):
+  password = list(password)
+  password[i] = password[rnd.randint(0,len(password)-1)]
+# password = str(password)
+for i in range (0,len(password)-1):    
+  if i == 0:    # else password is in form: ['u', '8', '*']
+    new_password = ""
+    new_password += password[i-1]
+  else:
+    new_password += password[i-1]
+print (password)
+print (new_password)
